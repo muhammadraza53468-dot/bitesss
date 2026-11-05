@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Bakerz Bite</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--brown:#2b1a12;--gold:#ffb84d;--cream:#fff8f0;--border:#f0e0d0}
+body{font-family:'Poppins',sans-serif;background:var(--cream);margin:0}
+.login-wrap{min-height:100vh;display:flex}
+.video-side{width:55%;position:relative;overflow:hidden}
+.video-side video{width:100%;height:100%;object-fit:cover;display:block}
+.video-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(43,26,18,.85) 0%,rgba(43,26,18,.15) 100%);display:flex;align-items:center;padding:50px}
+.form-side{width:45%;background:#fff;display:flex;align-items:center;justify-content:center;padding:40px}
+.form-box{width:100%;max-width:400px}
+.logo{font-weight:800;font-size:22px;letter-spacing:-1px;color:#000;text-decoration:none}.logo span{color:var(--gold)}
+.input-wrap{position:relative}
+.input-wrap .icon-left{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#8d6e63;font-size:18px;z-index:2}
+.input-wrap .icon-right{position:absolute;right:16px;top:50%;transform:translateY(-50%);color:#8d6e63;font-size:18px;z-index:2;border:0;background:transparent}
+.input-bake{width:100%;border-radius:100px!important;padding:13px 45px!important;border:1px solid var(--border)!important;background:#fff8f0!important;font-size:14px}
+.input-bake:focus{border-color:var(--gold)!important;box-shadow:0 0 0 4px rgba(255,184,77,.25)!important;background:#fff!important;outline:0}
+.btn-brown{background:var(--brown);color:#fff;border-radius:100px;padding:13px;border:0;width:100%;font-weight:600}
+.btn-brown:hover{background:#000;color:#fff}
+.divider{display:flex;align-items:center;gap:12px;color:#aaa;font-size:12px;margin:18px 0}.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+@media(max-width:991px){.login-wrap{flex-direction:column}.video-side{width:100%;height:48vh}.form-side{width:100%}.video-overlay{padding:25px}.video-overlay h1{font-size:34px!important}}
+</style>
+</head>
+<body>
+
+<div class="login-wrap">
+  <!-- LEFT VIDEO -->
+  <div class="video-side">
+    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800">
+      <source src="https://cdn.pixabay.com/video/2020/05/25/40130-424930032_large.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay">
+      <div>
+        <span class="badge rounded-pill px-3 py-2 mb-3" style="background:var(--gold);color:#000"><i class="bi bi-fire"></i> FRESH BAKED</span>
+        <h1 style="font-family:'Playfair Display';color:#fff;font-size:54px;line-height:1.05">Fresh <span style="color:var(--gold)">Bakes,</span><br>Warm<br>Stories.</h1>
+        <p class="text-white-50 small mt-3" style="max-width:340px">Join 5000+ customers enjoying Bakerz Bite every morning. Free delivery across Karachi.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT FORM -->
+  <div class="form-side">
+    <div class="form-box">
+      <a href="index.html" class="logo">BAKERZ <span>BITE</span></a>
+      <h2 class="fw-bold mt-4 mb-1" style="font-family:'Playfair Display'">Welcome back</h2>
+      <p class="text-muted small">Login to get 20% off on first order</p>
+
+      <form class="mt-4" onsubmit="return false">
+        <label class="small fw-semibold mb-2 ms-1">Email or Phone</label>
+        <div class="input-wrap mb-3">
+          <i class="bi bi-envelope icon-left"></i>
+          <input type="text" class="form-control input-bake" placeholder="you@example.com">
+        </div>
+
+        <label class="small fw-semibold mb-2 ms-1">Password</label>
+        <div class="input-wrap mb-2">
+          <i class="bi bi-lock icon-left"></i>
+          <input id="pass" type="password" class="form-control input-bake" placeholder="••••••••">
+          <button type="button" class="icon-right" onclick="let i=document.getElementById('pass');i.type=i.type=='password'?'text':'password';this.innerHTML=i.type=='password'?'<i class=bi-eye></i>':'<i class=bi-eye-slash></i>'"><i class="bi bi-eye"></i></button>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-4 mt-2">
+          <div class="form-check"><input class="form-check-input" type="checkbox" id="rem"><label class="form-check-label small" for="rem">Remember me</label></div>
+          <a href="#" class="small text-decoration-none" style="color:#8d6e63">Forgot password?</a>
+        </div>
+
+        <button class="btn-brown" onclick="location.href='index.html'"><i class="bi bi-box-arrow-in-right me-2"></i>Login to Bakerz Bite</button>
+
+        <div class="divider">OR CONTINUE WITH</div>
+        <div class="d-flex gap-2">
+          <button class="btn border rounded-pill w-50 py-2 small fw-semibold"><i class="bi bi-google me-1"></i> Google</button>
+          <button class="btn border rounded-pill w-50 py-2 small fw-semibold"><i class="bi bi-apple me-1"></i> Apple</button>
+        </div>
+
+        <p class="small text-center mt-4 mb-0">Don't have account? <a href="#" class="fw-bold text-decoration-none" style="color:var(--brown)">Create account</a></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
